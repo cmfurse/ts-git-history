@@ -2,8 +2,9 @@
   "name": "ts-git-history",
   "version": "1.0.0",
   "description": "Demo for Crossroads-Group",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
+    "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/cmfurse/ts-git-history/issues"
   },
-  "homepage": "https://github.com/cmfurse/ts-git-history#readme"
+  "homepage": "https://github.com/cmfurse/ts-git-history#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
