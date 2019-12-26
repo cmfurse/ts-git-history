@@ -1,15 +1,8 @@
-import { GraphQLClient } from "graphql-request";
+import { GraphQLClient } from 'graphql-request';
 
-export const getHistory = async () => {
-  const endpoint = "https://api.github.com/graphql";
-
-  const graphQLClient = new GraphQLClient(endpoint, {
-    headers: {
-      authorization: `Bearer ${process.env.GITHUB_API_TOKEN}`
-    },
-  });
-
-  const query = /* GraphQL */ `
+export class GithubClient {
+  private readonly GITHUB_ENDPOINT = 'https://api.github.com/graphql';
+  private readonly QUERY = `
   {
     repository(name: "ts-git-history", owner: "cmfurse") {
       ref(qualifiedName: "master") {
@@ -40,6 +33,17 @@ export const getHistory = async () => {
   }
   `;
 
-  const data = await graphQLClient.request(query);
-  return data;
-};
+  private graphQLClient: GraphQLClient;
+
+  constructor() {
+    this.graphQLClient = new GraphQLClient(this.GITHUB_ENDPOINT, {
+      headers: {
+        authorization: `Bearer ${process.env.GITHUB_API_TOKEN}`,
+      },
+    });
+  }
+
+  public async getHistory() {
+    return await this.graphQLClient.request(this.QUERY);
+  }
+}
