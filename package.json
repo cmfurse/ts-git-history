@@ -4,10 +4,11 @@
   "description": "Demo for Crossroads-Group",
   "main": "build/start.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start-dev": "nodemon --config \"./util/nodemon.json\"/",
-    "build": "rm -rf ./build/ && tsc",
-    "start": "node build/start.js"
+    "dev": "tsc && nodemon --config \"./util/nodemon.json\"/",
+    "dev:web": "cd ./src/public/react && npm start",
+    "start": "npm install --only=prod && NODE_ENV=production node ./build/start.js",
+    "build": "sh ./buildProd.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -29,10 +30,10 @@
     "graphql-request": "^1.8.2"
   },
   "devDependencies": {
-    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.2",
     "@types/node": "^12.12.22",
     "nodemon": "^2.0.2",
+    "ts-node": "^8.5.4",
     "tslint": "^5.20.1",
     "typescript": "^3.7.4"
   }

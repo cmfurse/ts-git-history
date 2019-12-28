@@ -5,6 +5,7 @@
         "baseUrl": "./",
         "outDir": "build",
         "removeComments": true,
+        "sourceMap": true,
         "experimentalDecorators": true,
         "target": "es6",
         "emitDecoratorMetadata": true,
@@ -21,6 +22,7 @@
         "./src/**/*.ts"
     ],
     "exclude": [
+        "./src/**/*.test.ts",
         "./src/public/"
     ]
 }

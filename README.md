@@ -8,3 +8,17 @@ Create a Github access token using the documentation found [here](https://help.g
 cp .env.example .env
 # modify .env as necessary
 ```
+
+## Run
+### Production
+```
+npm run build
+npm run start
+```
+
+### Development
+```
+npm run dev
+# in a separate window
+npm run dev:web
+```

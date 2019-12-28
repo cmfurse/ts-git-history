@@ -44,6 +44,7 @@ export class GithubClient {
   }
 
   public async getHistory() {
-    return await this.graphQLClient.request(this.QUERY);
+    const data = await this.graphQLClient.request(this.QUERY);
+    return data.repository.ref.target.history.edges;
   }
 }

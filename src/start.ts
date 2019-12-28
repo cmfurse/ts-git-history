@@ -1,9 +1,9 @@
 import ApiServer from './ApiServer';
+import { SERVER_PORT } from './config';
 import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-const port: number = parseInt(`${process.env.SERVER_PORT}`, 10) || 3000;
 const exampleServer = new ApiServer();
 
-exampleServer.start(port);
+exampleServer.start(SERVER_PORT);
